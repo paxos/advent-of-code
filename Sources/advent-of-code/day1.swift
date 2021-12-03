@@ -22,7 +22,7 @@ public class Day1: InputReader, Runable {
 
         var output: [Int] = []
 
-        for (index, element) in input.enumerated() {
+        for (index, _) in input.enumerated() {
             if index == input.count - 2 { break }
             output.append(input[index] + input[index + 1] + input[index + 2])
         }

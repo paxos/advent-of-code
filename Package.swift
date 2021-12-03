@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "advent-of-code",
-            targets: ["advent-of-code"]),
+            targets: ["advent-of-code"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -26,8 +26,5 @@ let package = Package(
             ]),
         .testTarget(
             name: "advent-of-codeTests",
-            dependencies: ["advent-of-code"],
-            resources: [
-                .copy("resources")
-            ])
+            dependencies: ["advent-of-code"])
     ])
