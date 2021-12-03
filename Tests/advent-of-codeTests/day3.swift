@@ -10,12 +10,14 @@ import XCTest
 
 class day3Tests: XCTestCase {
     func testPart1() throws {
-        XCTAssertEqual(Day3().run(), "2595824")
+        measure {
+            XCTAssertEqual(Day3().run(), "2595824")
+        }
     }
 
     func testPart2() throws {
         measure {
-            XCTAssertEqual(Day3().run2(), "2595824")
+            XCTAssertEqual(Day3().run2(), "2135254")
         }
     }
 }

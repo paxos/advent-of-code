@@ -70,9 +70,8 @@ public class Day3: InputReader, Runable {
             if oxygenFiltered.count == 1 {
                 print("hm")
             }
-
+            results = getReport(input: oxygenFiltered)
             oxygenFiltered = oxygenFiltered.filter { element in
-                results = getReport(input: oxygenFiltered)
                 let currentCharacter = Array(element)[number]
                 if results[number].ones == results[number].zeroes {
                     return currentCharacter == "1"
@@ -93,8 +92,9 @@ public class Day3: InputReader, Runable {
             if scrubberFiltered.count == 1 {
                 scrubber = Int(scrubberFiltered.first!, radix: 2)!
             }
+            results = getReport(input: scrubberFiltered)
+
             scrubberFiltered = scrubberFiltered.filter { element in
-                results = getReport(input: scrubberFiltered)
                 let currentCharacter = Array(element)[number]
                 if results[number].ones == results[number].zeroes {
                     return currentCharacter == "0"
