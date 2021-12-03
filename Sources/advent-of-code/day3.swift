@@ -66,20 +66,22 @@ public class Day3: InputReader, Runable {
 
         var oxygenFiltered = Array(input)
 
+        var oxygen = 0
+
         for number in 0 ... 11 {
-            if oxygenFiltered.count == 1 {
-                print("hm")
-            }
             results = getReport(input: oxygenFiltered)
             oxygenFiltered = oxygenFiltered.filter { element in
                 let currentCharacter = Array(element)[number]
-                if results[number].ones == results[number].zeroes {
-                    return currentCharacter == "1"
-                } else if results[number].ones >= results[number].zeroes {
+                if results[number].ones >= results[number].zeroes {
                     return currentCharacter == "1"
                 } else {
                     return currentCharacter == "0"
                 }
+            }
+
+            if oxygenFiltered.count == 1 {
+                oxygen = Int(oxygenFiltered.first!, radix: 2)!
+                break
             }
         }
 
@@ -89,25 +91,21 @@ public class Day3: InputReader, Runable {
         var scrubber = 0
 
         for number in 0 ... 11 {
-            if scrubberFiltered.count == 1 {
-                scrubber = Int(scrubberFiltered.first!, radix: 2)!
-            }
             results = getReport(input: scrubberFiltered)
 
             scrubberFiltered = scrubberFiltered.filter { element in
                 let currentCharacter = Array(element)[number]
-                if results[number].ones == results[number].zeroes {
-                    return currentCharacter == "0"
-                } else if results[number].ones >= results[number].zeroes {
+                if results[number].ones >= results[number].zeroes {
                     return currentCharacter == "0"
                 } else {
                     return currentCharacter == "1"
                 }
             }
+            if scrubberFiltered.count == 1 {
+                scrubber = Int(scrubberFiltered.first!, radix: 2)!
+                break
+            }
         }
-
-        let oxygen = Int(oxygenFiltered.first!, radix: 2)!
-        //  let scrubber = Int(scrubberFiltered.first!, radix: 2)!
 
         print(String(oxygen * scrubber))
         return String(oxygen * scrubber)
