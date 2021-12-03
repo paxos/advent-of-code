@@ -9,10 +9,12 @@
 import XCTest
 
 class advent_of_codeTests: XCTestCase {
-    
-    func testDay1() throws {
+    func testDay1_Part1() throws {
         XCTAssertEqual(Day1().run(), "1581")
-
+    }
+    
+    func testDay1_Part2() throws {
+        XCTAssertEqual(Day1().run2(), "1618")
     }
     
     func testDay2_Part1() throws {
