@@ -1,3 +1,3 @@
 # advent-of-code
 
-A description of this package.
+A simple Swift test runner as package
