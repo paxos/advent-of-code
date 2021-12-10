@@ -18,8 +18,10 @@ class day9Tests: XCTestCase {
         // 121823683884
         // 35476110
         // 35135820
-        XCTAssertEqual(Day9().run2(), "")
+        // 125
+        // 931200
+        XCTAssertEqual(Day9().run2(), "931200")
 
-        // try:
+        // try: 931200
     }
 }

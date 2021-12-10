@@ -21,10 +21,13 @@ public class Day9: InputReader, Runable {
 
     public func getNextNeighbor(inputMatrix: [[Int]], point: Point, points: inout [Point]) {
         let allNeighbors = neighbors(inputMatrix: inputMatrix, point: point).filter { $0.value < 9 }
-        let neighbors = allNeighbors.filter { $0.value == point.value + 1 }
+        let neighbors = allNeighbors.filter { n in
+            points.first(where: { $0.x == n.x && $0.y == n.y }) == nil
+        }
 
-        neighbors.forEach { getNextNeighbor(inputMatrix: inputMatrix, point: $0, points: &points) }
+        // let neighbors = allNeighbors.filter { $0.value == point.value + 1 }
         points.append(contentsOf: neighbors)
+        neighbors.forEach { getNextNeighbor(inputMatrix: inputMatrix, point: $0, points: &points) }
     }
 
     public func neighbors(inputMatrix: [[Int]], point: Point) -> [Point] {
@@ -44,6 +47,7 @@ public class Day9: InputReader, Runable {
         if let top = inputMatrix[safe: y-1]?[safe: x] {
             result.append(Point(x: x, y: y-1, value: top))
         }
+
         if let bottom = inputMatrix[safe: y + 1]?[safe: x] {
             result.append(Point(x: x, y: y + 1, value: bottom))
         }
