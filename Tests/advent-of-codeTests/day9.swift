@@ -14,14 +14,6 @@ class day9Tests: XCTestCase {
     }
 
     func testPart2() throws {
-        // 8379
-        // 121823683884
-        // 35476110
-        // 35135820
-        // 125
-        // 931200
         XCTAssertEqual(Day9().run2(), "931200")
-
-        // try: 931200
     }
 }
